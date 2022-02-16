@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.wangxingxing.videocollections.R
 import com.wangxingxing.videocollections.databinding.FragmentHomePageBinding
 import com.wangxingxing.videocollections.ui.common.ui.BaseViewPagerFragment
+import com.wangxingxing.videocollections.ui.search.SearchActivity
 import com.wangxingxing.videocollections.util.GlobalUtil
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -49,7 +50,8 @@ class HomePageFragment: BaseViewPagerFragment() {
         // 搜索
         ivSearch = binding.titleBar.ivSearch
         ivSearch.setOnClickListener {
-//            activity.startActivity(Intent(activity, ))
+            activity.startActivity(Intent(activity, SearchActivity::class.java))
+            activity.overridePendingTransition(R.anim.anl_push_up_in, 0)
         }
     }
 }

@@ -11,6 +11,7 @@ import androidx.navigation.NavigatorProvider
 import androidx.navigation.fragment.NavHostFragment
 import com.wangxingxing.videocollections.R
 import com.wangxingxing.videocollections.databinding.ActivityMainBinding
+import com.wangxingxing.videocollections.extension.setOnClickListener
 import com.wangxingxing.videocollections.ui.common.ui.BaseActivity
 import com.wangxingxing.videocollections.ui.common.ui.FixFragmentNavigator
 import com.wangxingxing.videocollections.ui.community.CommunityFragment
@@ -55,6 +56,78 @@ class MainActivity : BaseActivity() {
         provider.addNavigator(fragmentNavigator)
         //手动创建导航图
         val navGraph = initNavGraph(provider, fragmentNavigator)
+        //设置导航图
+        navController.graph = navGraph
+
+        val navigationBar = binding.navigationBar
+
+        setOnClickListener(
+            navigationBar.ivHomePage,
+            navigationBar.ivCommunity,
+            navigationBar.ivNotification,
+            navigationBar.ivMine,
+            navigationBar.ivRelease
+        ) {
+            when(this) {
+                navigationBar.ivHomePage -> {
+                    setTabSelection(0)
+                    navController.navigate(R.id.navigation_homepage)
+                }
+                navigationBar.ivCommunity -> {
+                    setTabSelection(1)
+                    navController.navigate(R.id.navigation_community)
+                }
+                navigationBar.ivNotification -> {
+                    setTabSelection(2)
+                    navController.navigate(R.id.navigation_notification)
+                }
+                navigationBar.ivMine -> {
+                    setTabSelection(3)
+                    navController.navigate(R.id.navigation_mine)
+                }
+                navigationBar.ivRelease -> {
+                    // TODO: login
+                }
+            }
+        }
+        setTabSelection(0)
+    }
+    
+    private fun setTabSelection(index: Int) {
+        clearAllSelected()
+        when (index) {
+            0 -> {
+                binding.navigationBar.ivHomePage.isSelected = true
+                binding.navigationBar.tvHomePage.isSelected = true
+            }
+            1 -> {
+                binding.navigationBar.ivCommunity.isSelected = true
+                binding.navigationBar.tvCommunity.isSelected = true
+            }
+            2 -> {
+                binding.navigationBar.ivNotification.isSelected = true
+                binding.navigationBar.tvNotification.isSelected = true
+            }
+            3 -> {
+                binding.navigationBar.ivMine.isSelected = true
+                binding.navigationBar.tvMine.isSelected = true
+            }
+            else -> {
+                binding.navigationBar.ivHomePage.isSelected = true
+                binding.navigationBar.tvHomePage.isSelected = true
+            }
+        }
+    }
+    
+    private fun clearAllSelected() {
+        binding.navigationBar.ivHomePage.isSelected = false
+        binding.navigationBar.tvHomePage.isSelected = false
+        binding.navigationBar.ivCommunity.isSelected = false
+        binding.navigationBar.tvCommunity.isSelected = false
+        binding.navigationBar.ivNotification.isSelected = false
+        binding.navigationBar.tvNotification.isSelected = false
+        binding.navigationBar.ivMine.isSelected = false
+        binding.navigationBar.tvMine.isSelected = false
     }
 
     /**
