@@ -16,6 +16,7 @@ import com.wangxingxing.videocollections.ui.common.ui.BaseActivity
 import com.wangxingxing.videocollections.ui.common.ui.FixFragmentNavigator
 import com.wangxingxing.videocollections.ui.community.CommunityFragment
 import com.wangxingxing.videocollections.ui.homepage.HomePageFragment
+import com.wangxingxing.videocollections.ui.login.LoginActivity
 import com.wangxingxing.videocollections.ui.mine.MineFragment
 import com.wangxingxing.videocollections.ui.notification.NotificationFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -86,7 +87,7 @@ class MainActivity : BaseActivity() {
                     navController.navigate(R.id.navigation_mine)
                 }
                 navigationBar.ivRelease -> {
-                    // TODO: login
+                    LoginActivity.start(this@MainActivity)
                 }
             }
         }

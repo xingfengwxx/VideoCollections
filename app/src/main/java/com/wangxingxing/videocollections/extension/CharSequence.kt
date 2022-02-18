@@ -5,6 +5,7 @@ import com.wangxingxing.videocollections.VideoCollectionsApplication
 import com.tencent.sonic.sdk.SonicConfig
 import com.tencent.sonic.sdk.SonicEngine
 import com.tencent.sonic.sdk.SonicSessionConfig
+import com.wangxingxing.videocollections.ui.common.ui.vassonic.SonicRuntimeImpl
 
 /**
  * 弹出Toast提示。
@@ -20,13 +21,13 @@ fun CharSequence.showToast(duration: Int = Toast.LENGTH_SHORT) {
  *
  * @param CharSequence 预加载url
  */
-//fun CharSequence.preCreateSession(): Boolean {
-//    if (!SonicEngine.isGetInstanceAllowed()) {
-//        SonicEngine.createInstance(SonicRuntimeImpl(VideoCollectionsApplication.context), SonicConfig.Builder().build())
-//    }
-//    val sessionConfigBuilder = SonicSessionConfig.Builder().apply { setSupportLocalServer(true) }
-//    val preloadSuccess = SonicEngine.getInstance().preCreateSession(this.toString(), sessionConfigBuilder.build())
-//    logD("preCreateSession()", "${this}\t:${if (preloadSuccess) "Preload start up success!" else "Preload start up fail!"}")
-//    return preloadSuccess
-//}
+fun CharSequence.preCreateSession(): Boolean {
+    if (!SonicEngine.isGetInstanceAllowed()) {
+        SonicEngine.createInstance(SonicRuntimeImpl(VideoCollectionsApplication.context), SonicConfig.Builder().build())
+    }
+    val sessionConfigBuilder = SonicSessionConfig.Builder().apply { setSupportLocalServer(true) }
+    val preloadSuccess = SonicEngine.getInstance().preCreateSession(this.toString(), sessionConfigBuilder.build())
+    logD("preCreateSession()", "${this}\t:${if (preloadSuccess) "Preload start up success!" else "Preload start up fail!"}")
+    return preloadSuccess
+}
 

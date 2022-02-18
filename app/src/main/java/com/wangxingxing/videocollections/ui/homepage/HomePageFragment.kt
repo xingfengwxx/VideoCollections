@@ -10,6 +10,9 @@ import androidx.fragment.app.Fragment
 import com.wangxingxing.videocollections.R
 import com.wangxingxing.videocollections.databinding.FragmentHomePageBinding
 import com.wangxingxing.videocollections.ui.common.ui.BaseViewPagerFragment
+import com.wangxingxing.videocollections.ui.homepage.daily.DailyFragment
+import com.wangxingxing.videocollections.ui.homepage.discovery.DiscoveryFragment
+import com.wangxingxing.videocollections.ui.homepage.recommend.RecommendFragment
 import com.wangxingxing.videocollections.ui.search.SearchActivity
 import com.wangxingxing.videocollections.util.GlobalUtil
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,7 +36,9 @@ class HomePageFragment: BaseViewPagerFragment() {
     }
 
     override val createFragments: Array<Fragment> = arrayOf(
-
+        DiscoveryFragment.newInstance(),
+        RecommendFragment.newInstance(),
+        DailyFragment.newInstance()
     )
 
     override fun onCreateView(

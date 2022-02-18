@@ -1,4 +1,4 @@
-package com.wangxingxing.videocollections.logic
+package com.wangxingxing.videocollections.logic.repository
 
 import kotlinx.coroutines.flow.Flow
 

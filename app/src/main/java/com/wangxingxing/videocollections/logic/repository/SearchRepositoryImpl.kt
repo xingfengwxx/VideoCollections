@@ -1,4 +1,4 @@
-package com.wangxingxing.videocollections.logic
+package com.wangxingxing.videocollections.logic.repository
 
 import com.wangxingxing.videocollections.logic.api.SearchService
 import com.wangxingxing.videocollections.logic.db.SearchDao

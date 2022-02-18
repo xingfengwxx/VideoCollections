@@ -4,8 +4,11 @@ import android.os.Build
 import android.util.Log
 import com.google.gson.GsonBuilder
 import com.wangxingxing.videocollections.extension.logV
+import com.wangxingxing.videocollections.extension.logW
 import com.wangxingxing.videocollections.extension.screenPixel
+import com.wangxingxing.videocollections.logic.api.HomePageService
 import com.wangxingxing.videocollections.logic.api.SearchService
+import com.wangxingxing.videocollections.logic.api.VideoService
 import com.wangxingxing.videocollections.ui.common.callback.GsonTypeAdapterFactory
 import com.wangxingxing.videocollections.util.GlobalUtil
 import dagger.Module
@@ -44,7 +47,7 @@ object NetWorkModule {
     @Provides
     fun provideOkHttpClient(): OkHttpClient {
         val httpLoggingInterceptor = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger {
-            Log.w("network", it)
+            logW("network", it)
         })
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         return OkHttpClient.Builder()
@@ -76,6 +79,18 @@ object NetWorkModule {
     @Provides
     fun provideSearchService(retrofit: Retrofit): SearchService {
         return retrofit.create(SearchService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideHomePageService(retrofit: Retrofit): HomePageService {
+        return retrofit.create(HomePageService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideVideoService(retrofit: Retrofit): VideoService {
+        return retrofit.create(VideoService::class.java)
     }
 
     class LoggingInterceptor : Interceptor {

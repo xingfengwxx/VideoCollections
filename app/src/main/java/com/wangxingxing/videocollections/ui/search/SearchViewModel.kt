@@ -2,7 +2,7 @@ package com.wangxingxing.videocollections.ui.search
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
-import com.wangxingxing.videocollections.logic.SearchRepository
+import com.wangxingxing.videocollections.logic.repository.SearchRepository
 import kotlinx.coroutines.flow.Flow
 
 /**
