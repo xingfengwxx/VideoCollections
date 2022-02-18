@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.wangxingxing.videocollections.R
 import com.wangxingxing.videocollections.ui.common.ui.BaseViewPagerFragment
+import com.wangxingxing.videocollections.ui.community.follow.FollowFragment
+import com.wangxingxing.videocollections.ui.community.recommend.RecommendFragment
 import com.wangxingxing.videocollections.util.GlobalUtil
 
 /**
@@ -23,8 +25,8 @@ class CommunityFragment : BaseViewPagerFragment() {
     }
 
     override val createFragments: Array<Fragment> = arrayOf(
-//        RecommendFragment.newInstance(),
-//        FollowFragment.newInstance()
+        RecommendFragment.newInstance(),
+        FollowFragment.newInstance()
     )
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

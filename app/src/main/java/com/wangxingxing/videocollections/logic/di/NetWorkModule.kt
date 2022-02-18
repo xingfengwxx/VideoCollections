@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder
 import com.wangxingxing.videocollections.extension.logV
 import com.wangxingxing.videocollections.extension.logW
 import com.wangxingxing.videocollections.extension.screenPixel
+import com.wangxingxing.videocollections.logic.api.CommunityService
 import com.wangxingxing.videocollections.logic.api.HomePageService
 import com.wangxingxing.videocollections.logic.api.SearchService
 import com.wangxingxing.videocollections.logic.api.VideoService
@@ -91,6 +92,12 @@ object NetWorkModule {
     @Provides
     fun provideVideoService(retrofit: Retrofit): VideoService {
         return retrofit.create(VideoService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideCommunityService(retrofit: Retrofit): CommunityService {
+        return retrofit.create(CommunityService::class.java)
     }
 
     class LoggingInterceptor : Interceptor {

@@ -1,5 +1,6 @@
 package com.wangxingxing.videocollections.logic.di
 
+import com.wangxingxing.videocollections.logic.api.CommunityService
 import com.wangxingxing.videocollections.logic.api.HomePageService
 import com.wangxingxing.videocollections.logic.api.SearchService
 import com.wangxingxing.videocollections.logic.api.VideoService
@@ -44,5 +45,13 @@ object RepositoryModule {
         api: VideoService
     ): VideoRepository {
         return VideoRepositoryImpl(api)
+    }
+
+    @ActivityScoped
+    @Provides
+    fun provideCommunityRepository(
+        api: CommunityService
+    ): CommunityRepository {
+        return CommunityRepositoryImpl(api)
     }
 }
