@@ -18,10 +18,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VideoCollections">
+
+        <activity
+            android:name=".ui.SplashActivity"
+            android:theme="@style/Theme.VideoCollections.SplashActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".ui.search.SearchActivity"
-            android:exported="true" />
-        <!-- 关于全面屏与刘海，状态栏配置相关 -->
+            android:exported="true" /> <!-- 关于全面屏与刘海，状态栏配置相关 -->
         <meta-data
             android:name="android.max_aspect"
             android:value="2.4" />
@@ -34,14 +45,10 @@
 
         <activity
             android:name=".ui.MainActivity"
-            android:exported="true"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:exported="true"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
