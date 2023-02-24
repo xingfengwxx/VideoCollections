@@ -55,7 +55,7 @@ object NetWorkModule {
             .addInterceptor(LoggingInterceptor())
             .addInterceptor(HeaderInterceptor())
             .addInterceptor(BasicParamsInterceptor())
-            .addInterceptor(httpLoggingInterceptor)
+            .addNetworkInterceptor(httpLoggingInterceptor)
             .build()
     }
 
